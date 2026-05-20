@@ -1,4 +1,4 @@
-# mini cmake-cache parser
+# ccache - mini cmake-cache parser
 
 Minimal header-only C++ library for parsing `CMakeCache.txt`-like syntax.
 
