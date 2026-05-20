@@ -1,14 +1,16 @@
-cmake_minimum_required(VERSION 3.15)
-project(ccacheparser VERSION 0.1.0 LANGUAGES CXX) # Insert project name here
+cmake_minimum_required(VERSION 3.14)
 
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Define the project name and version
+project(ccacheparser
+    VERSION 1.0.0 
+    LANGUAGES CXX
+)
 
-set(SOURCES
-    src/main.cpp
-) # Add files as they expand
+add_library(ccache INTERFACE)
 
-target_compile_features(${PROJECT_NAME}
-    INTERFACE )
+target_include_directories(ccache INTERFACE 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+    $<INSTALL_INTERFACE:include>
+)
+
+target_compile_features(ccache INTERFACE cxx_std_23)
