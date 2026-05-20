@@ -1,0 +1,8 @@
+# KEEP THIS FILE!
+
+# Build files
+build/
+
+# Temporary code files
+*/temp/
+src/temp/
