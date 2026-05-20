@@ -18,8 +18,7 @@ This library intentionally stays minimal and parses from a string buffer.
 
 auto cache = CMakeCacheParse::parse(fileContents);
 
-auto compiler =
-    cache["CMAKE_CXX_COMPILER"]->fetch();
+auto compiler = cache["CMAKE_CXX_COMPILER"]->fetch();
 ```
 
 ## Notes
