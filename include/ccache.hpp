@@ -47,9 +47,10 @@ namespace CMakeCacheParse
             std::string result;
 
             while (std::getline(iss, line)) {
-                // Remove comments (anything after '#')
+                // Remove comments (anything after '#' or "//")
                 size_t commentPos = line.find('#');
-                if (commentPos != std::string::npos) {
+                size_t commentPos2 = line.find("//");
+                if (commentPos != std::string::npos || commentPos2 != std::string::npos) {
                     line = line.substr(0, commentPos);
                 }
                 
@@ -101,7 +102,7 @@ namespace CMakeCacheParse
             return "";
         }
 
-        // Returns the proxy object allowing cache["KEY"]->fetch()
+        // Returns the proxy object 
         ElementProxy operator[] (std::string key) const {
             return ElementProxy(*this, std::move(key));
         }
